@@ -1,7 +1,10 @@
 import pandas as pd
 import numpy as np
 import os
-df = pd.read_excel('C:/Users/admin/Desktop/англ игра/a1.xlsx', header=None)
+import xlrd
+import re
+from clear import clear
+df = pd.read_excel('C:/Users/admin/Desktop/англ/a1.xlsx', header=None)
 r=input("хотители вы просмотреть словарь:")
 if (r=="да"):
     print(df)
@@ -13,27 +16,29 @@ for i in df.index:
 print (v)
 import random
 c=int(input("сколько слов ты хочешь проработать:"))
-nm=random.randint(c, (0,len(a)-1)) #рандомно выбираем промежуток словаря
+cc=int(input("сколько подходов сдедаешь:"))
+nm=np.random.randint(0,len(a)-1, size=c) #рандомно выбираем промежуток словаря
 rr=input("хотители вы просмотреть слова для выучивания:")
 if (rr=="да"):
-    print(df.iloc[nm,:])
-for i in range(0,c):
-    s=random.randint(nm)
-    print(v[s])
+    print( df.iloc[nm,:])
+for i in range(0,cc):
+    s=random.randint(0,len(nm)-1)
+    ty=nm[s]
+    print(v[ty])
     r=input()
-    if (r==a[s]):
+    if (r==a[ty]):
         print ("Правильно")
-    if (r!=a[s]) and (r!=str(0)):
+    if (r!=a[ty]) and (r!=str(0)):
         h=0
-        while ((r!=a[s])and (r!=str(0))) or (h<15):
+        while ((r!=a[ty])and (r!=str(0))) or (h<15):
             print ("Неравильно")
-            print(v[s])
+            print(v[ty])
             r=input()
-            if (r==a[s]):
+            if (r==a[ty]):
                 print ("Правильно")
                 break
             if (h==14):
-                print(v[s]+"- это "+ a[s])
+                print(v[ty]+"- это "+ a[ty])
             h+=1
     if (r==str(0)):
         break
