@@ -13,8 +13,12 @@ for i in df.index:
 print (v)
 import random
 c=int(input("сколько слов ты хочешь проработать:"))
+nm=random.randint(c, (0,len(a)-1)) #рандомно выбираем промежуток словаря
+rr=input("хотители вы просмотреть слова для выучивания:")
+if (rr=="да"):
+    print(df.iloc[nm,:])
 for i in range(0,c):
-    s=random.randint(0,len(a)-1)
+    s=random.randint(nm)
     print(v[s])
     r=input()
     if (r==a[s]):
