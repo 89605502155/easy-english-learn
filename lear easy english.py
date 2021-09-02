@@ -1,10 +1,12 @@
 import pandas as pd
 import numpy as np
-import os
-import xlrd
-import re
+import pickle as pkl
+#import os
+#import xlrd
+#import re
 from clear import clear
-df = pd.read_excel('C:/Users/admin/Desktop/англ/a1.xlsx', header=None)
+#df = pd.read_excel('C:/Users/admin/Desktop/англ/a1.xlsx', header=None)
+df=pkl.load(open('C:/Users/admin/Desktop/англ/data.pkl.gz', 'rb'))
 r=input("хотители вы просмотреть словарь:")
 if (r=="да"):
     print(df)
@@ -13,7 +15,7 @@ v=[]
 for i in df.index:
     a+=[df.iloc[i,0]] #столбец английских слов
     v+=[df.iloc[i,1]]  #столбец переводов
-print (v)
+print ()
 import random
 c=int(input("сколько слов ты хочешь проработать:"))
 cc=int(input("сколько подходов сдедаешь:"))
