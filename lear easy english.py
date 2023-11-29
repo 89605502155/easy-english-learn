@@ -1,12 +1,13 @@
 import pandas as pd
 import numpy as np
 import pickle as pkl
+from gzip import open
 #import os
 #import xlrd
 #import re
-from clear import clear
-#df = pd.read_excel('C:/Users/admin/Desktop/англ/a1.xlsx', header=None)
-df=pkl.load(open('C:/Users/admin/Desktop/англ/data.pkl.gz', 'rb'))
+# from clear import clear
+df = pd.read_excel('a1.ods', header=None)
+# df=pkl.load(open('data.pkl.gz', 'rb'))
 r=input("хотители вы просмотреть словарь:")
 if (r=="да"):
     print(df)
